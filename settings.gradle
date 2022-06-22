@@ -16,4 +16,6 @@ dependencyResolutionManagement {
 
 rootProject.name = 'AntlrStartup'
 
+include 'Base'
 include 'Hello'
+include 'ArrayInit'
