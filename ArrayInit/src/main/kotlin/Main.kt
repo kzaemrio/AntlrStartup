@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker
 fun main() {
     val parser = Antlr.parseString<ArrayInitLexer, ArrayInitParser>("{1, 2, 3, 4}")
     val init = parser.init()
-    println(init.toStringTree())
+    println(init.toStringTree(parser))
     ParseTreeWalker().walk(listener(), init)
 }
 

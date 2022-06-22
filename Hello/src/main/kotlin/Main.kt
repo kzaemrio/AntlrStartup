@@ -5,5 +5,6 @@ fun main() {
 //    val helloParser = HelloParser(BufferedTokenStream(helloLexer))
 //    println(helloParser.root().toStringTree())
 
-    println(Antlr.parseString<HelloLexer, HelloParser>(input).root().toStringTree())
+    val parser = Antlr.parseString<HelloLexer, HelloParser>(input)
+    println(parser.root().toStringTree(parser))
 }

@@ -5,6 +5,10 @@ object Antlr {
         return parse<SubLexer, SubParser>(CharStreams.fromString(input))
     }
 
+    inline fun <reified SubLexer : Lexer, reified SubParser : Parser> parseFile(fileName: String): SubParser {
+        return parse<SubLexer, SubParser>(CharStreams.fromFileName(fileName))
+    }
+
     inline fun <reified SubLexer : Lexer, reified SubParser : Parser> parse(charStream: CharStream): SubParser {
         val lexer: SubLexer = SubLexer::class.java.declaredConstructors.first().newInstance(charStream) as SubLexer
         val tokenStream = BufferedTokenStream(lexer)
