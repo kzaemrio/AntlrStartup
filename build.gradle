@@ -1,0 +1,26 @@
+buildscript {
+    ext {
+        kotlin_version = "1.7.0"
+        antlr_version = "4.10.1"
+        jupiter_version = "5.8.2"
+    }
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "$kotlin_version" apply false
+}
+
+
+subprojects {
+    if (plugins.contains(JavaPlugin)) {
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(11)
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
